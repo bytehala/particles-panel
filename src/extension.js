@@ -41,7 +41,6 @@ class ParticlePanelViewProvider {
         this.extensionUri = extensionUri;
     }
     refreshWebviewContent() {
-        console.log("refresh");
         if (this._view) {
             this._view.webview.html = this.getWebviewContent(); // Regenerate or fetch the content again
         }

@@ -17,7 +17,6 @@ class ParticlePanelViewProvider implements vscode.WebviewViewProvider {
     constructor(private extensionUri: vscode.Uri) {}
 
     refreshWebviewContent() {
-        console.log("refresh");
         if (this._view) {
             this._view.webview.html = this.getWebviewContent(); // Regenerate or fetch the content again
         }

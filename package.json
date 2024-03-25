@@ -3,6 +3,7 @@
   "displayName": "Particles Panel",
   "description": "Particles in your IDE bottom panel or sidebars",
   "version": "0.0.1",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.87.0"
   },
@@ -16,51 +17,54 @@
     "commands": [
       {
         "command": "particles-panel.reloadWebView",
-        "title": "Reload Particles Panel"
+        "title": "Particles Panel: Reload/Resize"
       }
     ],
     "viewsContainers": {
-        "panel": [
-            {
-                "id": "particlePanel",
-                "title": "Particles Panel",
-                "icon": "assets/logo.png"
-            }
-        ],
-        "activitybar": [
-          {
-            "id": "particlePanel",
-            "title": "Particles Panel",
-            "icon": "assets/logo.png"
-          }
-        ]
+      "panel": [
+        {
+          "id": "particlePanel",
+          "title": "Particles Panel",
+          "icon": "assets/logo.png"
+        }
+      ],
+      "activitybar": [
+        {
+          "id": "particlePanel",
+          "title": "Particles Panel",
+          "icon": "assets/logo.png"
+        }
+      ]
     },
     "views": {
-        "particlePanel": [
-            {
-                "type": "webview",
-                "id": "particlePanelView",
-                "name": ""
-            }
-        ]
+      "particlePanel": [
+        {
+          "type": "webview",
+          "id": "particlePanelView",
+          "name": ""
+        }
+      ]
     }
   },
   "scripts": {
-		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"build": "vsce package",
-		"release": "standard-version"
-	},
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "build": "vsce package",
+    "release": "standard-version"
+  },
   "devDependencies": {
-    "@types/vscode": "^1.87.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.87.0",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.6",
-    "@vscode/test-electron": "^2.3.9"
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "vsce": "^2.15.0"
   }
 }
