@@ -20,7 +20,9 @@ Please submit issues to bytehala/particles-panel Github repository.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.3
+
+Added icon for Extension Marketplace listing
 
 ### 0.0.1
 
