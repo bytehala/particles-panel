@@ -1,5 +1,10 @@
 import * as vscode from 'vscode';
 
+// TODO: Pass darkTheme to the webview
+function isDarkTheme() {
+    return vscode.window.activeColorTheme.kind === vscode.ColorThemeKind.Dark;
+}
+
 export function activate(context: vscode.ExtensionContext) {
     const provider = new ParticlePanelViewProvider(context.extensionUri);
     context.subscriptions.push(vscode.window.registerWebviewViewProvider("particlePanelView", provider));

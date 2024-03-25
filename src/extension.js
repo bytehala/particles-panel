@@ -25,6 +25,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.activate = void 0;
 const vscode = __importStar(require("vscode"));
+// TODO: Pass darkTheme to the webview
+function isDarkTheme() {
+    return vscode.window.activeColorTheme.kind === vscode.ColorThemeKind.Dark;
+}
 function activate(context) {
     const provider = new ParticlePanelViewProvider(context.extensionUri);
     context.subscriptions.push(vscode.window.registerWebviewViewProvider("particlePanelView", provider));
