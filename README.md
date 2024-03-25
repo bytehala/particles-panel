@@ -3,6 +3,7 @@
 ## Features
 
 - Displays Particles in your bottom panel
+- Adds new particles when clicked
 - Can be moved to the primary/secondary sidebar
 
 ![Screenshot](assets/screenshot_01.png)
