@@ -1,5 +1,13 @@
 ![Particles Panel](assets/recording.gif)
 
+## Usage
+
+After installing the extension, run `View: Toggle Particles Panel` in your command palette (Cmd + Shift + P in MacOS)
+
+![Command Palette](assets/screenshot_02_commandpalette.png)
+
+If you resized the panel, you'll have to run `Particles Panel: Reload/Resize` to update the canvas size.
+
 ## Features
 
 - Displays Particles in your bottom panel
@@ -16,6 +24,10 @@
 Please submit issues to bytehala/particles-panel Github repository.
 
 ## Release Notes
+
+### 0.0.5
+
+Added "Usage" section to README
 
 ### 0.0.4
 
