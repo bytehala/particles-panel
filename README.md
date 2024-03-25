@@ -8,9 +8,6 @@
 
 ![Screenshot](assets/screenshot_01.png)
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-
 ## Known Issues
 
 - Canvas does not resize live. Workaround is to use `Particles Panel: Reload Resize` in your Command Palette
