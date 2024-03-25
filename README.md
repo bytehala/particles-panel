@@ -1,11 +1,11 @@
-\!\[Particles Panel\]\(assets/recording.gif\)
+[Particles Panel](assets/recording.gif)
 
 ## Features
 
 - Displays Particles in your bottom panel
 - Can be moved to the primary/secondary sidebar
 
-\!\[Particles Panel\]\(assets/screenshot_01.png\)
+[Screenshot](assets/screenshot_01.png)
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
