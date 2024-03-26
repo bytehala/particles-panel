@@ -2,7 +2,7 @@
   "name": "particles-panel",
   "displayName": "Particles Panel",
   "description": "Particles in your IDE bottom panel or sidebars",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "icon": "assets/logo.png",
   "publisher": "bytehala",
   "license": "MIT",

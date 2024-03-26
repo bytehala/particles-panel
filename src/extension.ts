@@ -1,8 +1,7 @@
 import * as vscode from 'vscode';
 
-// TODO: Pass darkTheme to the webview
 function isDarkTheme() {
-    return vscode.window.activeColorTheme.kind === vscode.ColorThemeKind.Dark;
+    return vscode.window.activeColorTheme.kind === vscode.ColorThemeKind.Dark || vscode.window.activeColorTheme.kind === vscode.ColorThemeKind.HighContrast;
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -38,6 +37,7 @@ class ParticlePanelViewProvider implements vscode.WebviewViewProvider {
     }
 
     private getWebviewContent() {
+        const isDarkMode = isDarkTheme();
         const nonce = Date.now().toString();
         return `<!DOCTYPE html>
             <html lang="en">
@@ -79,7 +79,7 @@ class ParticlePanelViewProvider implements vscode.WebviewViewProvider {
                             }
                         },
                         color: {
-                            value: '#fff'
+                            value: '#ffffff'
                         },
                         shape: {
                             type: 'circle',
@@ -119,7 +119,7 @@ class ParticlePanelViewProvider implements vscode.WebviewViewProvider {
                         line_linked: {
                             enable: true,
                             distance: 100,
-                            color: '#fff',
+                            color: '#ffffff',
                             opacity: 1,
                             width: 1
                         },
@@ -1501,16 +1501,16 @@ class ParticlePanelViewProvider implements vscode.WebviewViewProvider {
                     function hexToRgb(hex){
                     // By Tim Down - http://stackoverflow.com/a/5624139/3493650
                     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-                    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+                    const shorthandRegex = /^#?([a-f0-9])([a-f0-9])([a-f0-9])$/i;
                     hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-                        return r + r + g + g + b + b;
+                        return '#' + r + r + g + g + b + b;
                     });
-                    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                    const result = /^#?([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})$/i.exec(hex);
                     return result ? {
                         r: parseInt(result[1], 16),
                         g: parseInt(result[2], 16),
                         b: parseInt(result[3], 16)
-                    } : null;
+                    } : {r: 128, g: 128, b: 128};
                     };
                     
                     function clamp(number, min, max) {
@@ -1599,18 +1599,11 @@ class ParticlePanelViewProvider implements vscode.WebviewViewProvider {
                 </script>
                 <script>
 
-                let particlejs;
-
-                window.addEventListener('resize', () => {
-                    // Handle resize
-                    const newWidth = window.innerWidth;
-                    const newHeight = window.innerHeight;
+                const darkColor = "#0f4a85";
+                const lightColor = "#ffffff";
                 
-                    // For example, adjusting the canvas size for your particles
-                    // Assuming you have a canvas for your particles
-                    const canvas = document.getElementById('yourCanvasId');
-                    console.log(particlejs);
-                });
+                const primaryColor = darkColor; // ${isDarkMode} ? lightColor : darkColor;
+                const secondaryColor = darkColor; // ${isDarkMode} ? darkColor: lightColor;
 
                 // ParticlesJS Config.
                 particlejs = particlesJS("particles-js", {
@@ -1623,13 +1616,13 @@ class ParticlePanelViewProvider implements vscode.WebviewViewProvider {
                 
                 
                     "color": {
-                        "value": "#ffffff" },
+                        "value": primaryColor },
                 
                     "shape": {
                         "type": "circle",
                         "stroke": {
                         "width": 0,
-                        "color": "#000000" },
+                        "color": secondaryColor },
                 
                         "polygon": {
                         "nb_sides": 5 } },
@@ -1658,7 +1651,7 @@ class ParticlePanelViewProvider implements vscode.WebviewViewProvider {
                     "line_linked": {
                         "enable": true,
                         "distance": 150,
-                        "color": "#ffffff",
+                        "color": primaryColor,
                         "opacity": 0.5,
                         "width": 1 },
                 

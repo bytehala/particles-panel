@@ -6,7 +6,8 @@ After installing the extension, run `View: Toggle Particles Panel` in your comma
 
 ![Command Palette](assets/screenshot_02_commandpalette.png)
 
-If you resized the panel, you'll have to run `Particles Panel: Reload/Resize` to update the canvas size.
+> [!IMPORTANT]  
+> If you resized the panel, or you see nothing in the panel, you'll have to run `Particles Panel: Reload/Resize` to update the canvas size.
 
 ## Features
 
@@ -18,21 +19,11 @@ If you resized the panel, you'll have to run `Particles Panel: Reload/Resize` to
 
 ## Known Issues
 
-- Canvas does not resize live. Workaround is to use `Particles Panel: Reload Resize` in your Command Palette
-- Currently only visible in dark mode
+- Canvas does not resize live. Workaround is to use `Particles Panel: Reload/Resize` in your Command Palette
+- Colors do not update when the IDE theme changes between Light and Dark. Workaround is to use `Particles Panel: Reload/Resize` in your Command Palette
 
 Please submit issues to bytehala/particles-panel Github repository.
 
 ## Release Notes
 
-### 0.0.5
-
-Added "Usage" section to README
-
-### 0.0.4
-
-Added icon for Extension Marketplace listing, updated README
-
-### 0.0.1
-
-Initial release of `particles-panel`
+> Release notes have moved to CHANGELOG
